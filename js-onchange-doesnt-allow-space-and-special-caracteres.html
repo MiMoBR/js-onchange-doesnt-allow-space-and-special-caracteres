@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title></title>
+
+	</head>
+	<body>
+		<div>
+			<label>Onchange remove space</label>
+			<input onchange="emailTrim(event)" type="text" name="inpEl" id="inpEl" style="width: 25rem;">
+		</div>
+		<div>
+			<label>Onchange remove space and @.-_ ~´^a-zA-Z0-9</label>
+			<input onchange="emailElements(event)" type="text" name="email" id="email" style="width: 25rem;">
+		</div>
+		<script type="text/javascript">
+			function emailTrim(event){
+				var str = document.getElementById("inpEl").value;
+				var newStr = str.replace(/\s/g,'');
+
+				document.getElementById("inpEl").value = newStr;
+			};
+			function emailElements(event){
+				var str 	= document.getElementById("email").value;
+				var strC	= str.replace(/(?:[^0-9\ a-z\ A-Z\ \@\-_\.\^\~\´]*)/, '');
+				var newStr 	= strC.replace(/\s/g,'');
+				
+				document.getElementById("email").value = newStr;
+
+			};
+		</script>
+	</body>
+</html>
